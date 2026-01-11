@@ -6,7 +6,7 @@ test('should remove checkbox and enable input field', async ({ page }) => {
 
   await dynamicPage.navigate();
 
- await dynamicPage.removeCheckbox();
+  await dynamicPage.removeCheckbox();
   expect(await dynamicPage.checkbox.isVisible()).toBeFalsy();
 
   await dynamicPage.enableInput();

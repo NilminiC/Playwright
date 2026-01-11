@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
-import { Button } from './components/Button'; 
+import { Button } from './components/Button';
 
 export class DynamicControlsPage {
   readonly page: Page;
@@ -12,8 +12,8 @@ export class DynamicControlsPage {
   constructor(page: Page) {
     this.page = page;
     this.checkbox = page.locator('#checkbox');
-    this.removeButton = new Button(page, 'button:has-text("Remove")'); 
-    this.enableButton = new Button(page, 'button:has-text("Enable")'); 
+    this.removeButton = new Button(page, 'button:has-text("Remove")');
+    this.enableButton = new Button(page, 'button:has-text("Enable")');
     this.message = page.locator('#message');
     this.inputField = page.locator('input[type="text"]');
   }
