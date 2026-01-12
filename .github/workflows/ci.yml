@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         browser: [chromium, firefox, webkit]
+        fail-fast: false
 
     steps:
     - name: Checkout repository
@@ -29,11 +30,12 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright Tests
-      run: npx playwright test --browser ${{ matrix.browser }} --reporter=list
-
+      run: npx playwright test --project ${{ matrix.browser }} --reporter=html --output=playwright-report/${{ matrix.browser }}
+      
     - name: Upload HTML Report
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: playwright-report-${{ matrix.browser }}
-        path: playwright-report/
+  if: always()
+  uses: actions/upload-artifact@v4
+  with:
+    name: playwright-report-${{ matrix.browser }}
+    path: playwright-report/${{ matrix.browser }}
+
