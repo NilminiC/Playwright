@@ -3,7 +3,9 @@ import { BASE_URL } from './config/env.config';
 
 export default defineConfig({
   testDir: './tests',
-  reporter: 'html',
+  reporter: [
+    ['html', { outputFolder: 'playwright-report/${PROJECT_NAME}' }]
+  ],
   use: {
     baseURL: BASE_URL,
     trace: 'on-first-retry',
