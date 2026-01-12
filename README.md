@@ -65,6 +65,12 @@ npx playwright test --ui
 - Run a specific test file
 npx playwright test tests/login.spec.ts
 
+- Run tests for a specific browser (simulating the matrix)
+npx playwright test --project=chromium
+npx playwright test --project=firefox
+npx playwright test --project=webkit
+
+
 ## HTML Report
 After running tests:
 npx playwright show-report
